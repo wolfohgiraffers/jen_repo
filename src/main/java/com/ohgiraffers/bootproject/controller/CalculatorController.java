@@ -18,7 +18,7 @@ import java.util.List;
 @Slf4j
 public class CalculatorController {
     CalculatorService calculatorService;
-    @Value("test")
+    @Value("${test}")
     private String configProp;
 
     @Autowired
