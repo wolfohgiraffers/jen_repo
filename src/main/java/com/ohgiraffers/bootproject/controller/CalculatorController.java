@@ -5,6 +5,7 @@ import com.ohgiraffers.bootproject.entity.CalculationHistory;
 import com.ohgiraffers.bootproject.service.CalculatorService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,10 +18,17 @@ import java.util.List;
 @Slf4j
 public class CalculatorController {
     CalculatorService calculatorService;
+    @Value("test")
+    private String configProp;
 
     @Autowired
     public CalculatorController(CalculatorService calculatorService) {
         this.calculatorService = calculatorService;
+    }
+
+    @GetMapping("/test")
+    public String test() {
+        return configProp + "속성 확인!";
     }
 
     @GetMapping("/health")
